@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_grpc/services/todo_grpc_client_service.dart';
+
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  TodoService().init();
+  //TODO: Add TodoService Initialization here
   runApp(const MyApp());
 }
 
