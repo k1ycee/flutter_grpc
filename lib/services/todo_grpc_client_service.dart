@@ -2,6 +2,11 @@ import 'package:flutter_grpc/grpc_files/proto/todo.pbgrpc.dart';
 import 'package:grpc/grpc.dart';
 
 class TodoService {
+
+  /// Ngrok url will look like this `tcp://2.tcp.eu.ngrok.io:10944`
+  /// Your baseurl is `2.tcp.eu.ngrok.io`
+  /// Your port is `10944`
+  /// If you're wondering if you don't need `tcp://`, you're absolutely right it won't affect you code in any way.
   String baseUrl = "2.tcp.eu.ngrok.io";
 
   TodoService._internal();

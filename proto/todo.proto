@@ -1,11 +1,21 @@
 syntax = "proto3";
 
+
+/// `message` are like Structs or a Model class
+/// `service` is like an abstract class just holding function definitions
+
+/// `Todo` is a model class with the fields we want with their data types
+/// To learn more go to `protobuf.dev`
 message Todo {
     string id = 1;
     string title = 2;
     string todo = 3;
 }
 
+/// rpc's are structured like this 
+/// rpc funtionname(Arguments) returns (return Type){}
+/// You've been around programming languages a while this should immediately make sense
+/// if it doesn't consult tutorials and the protobuf docs, it's really straight-forward and easy
 service TodoService {
     rpc GetAllTodos (Empty) returns (TodoList) {}
     rpc AddTodo(Todo) returns (TodoList) {}
@@ -22,5 +32,6 @@ message TodoId {
 message Empty {}
 
 message TodoList {
+    /// Like everything in programming you can always re-use, `repeated` represents a list and repeated to do means List<Todo> basically 
    repeated Todo todo = 1;
 }

@@ -2,6 +2,13 @@ import 'package:flutter_grpc/grpc_files/proto/todo.pbgrpc.dart';
 import 'package:flutter_grpc/services/todo_grpc_client_service.dart';
 
 class TodoRepository {
+  TodoRepository._internal();
+
+  static final TodoRepository _instance = TodoRepository._internal();
+
+  factory TodoRepository() => _instance;
+  static TodoRepository get instance => _instance;
+
   Future<TodoList> fetchTodos() async {
     Empty empty = Empty();
     var todos = await TodoService.instance.todoServiceClient.getAllTodos(empty);
