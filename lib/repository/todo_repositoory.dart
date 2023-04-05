@@ -17,7 +17,7 @@ class TodoRepository {
 
   Future<TodoList> createTodo({String? title, String? whatTodo}) async {
     Todo todo = Todo();
-    todo.id = DateTime.now().toString();
+    todo.id = DateTime.now().microsecondsSinceEpoch.toString();
     todo.title = title!;
     todo.todo = whatTodo!;
     var todos = await TodoService.instance.todoServiceClient.addTodo(todo);
