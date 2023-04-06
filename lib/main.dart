@@ -6,11 +6,14 @@ import 'package:stack_trace/stack_trace.dart' as stack_trace;
 
 void main()  {
   WidgetsFlutterBinding.ensureInitialized();
+  /// Solves the special error case if you encounter one
+  /// STARTS HERE
   FlutterError.demangleStackTrace = (StackTrace stack) {
   if (stack is stack_trace.Trace) return stack.vmTrace;
   if (stack is stack_trace.Chain) return stack.toTrace().vmTrace;
   return stack;
 };
+/// ENDS HERE
   TodoService().init();
   runApp(
     const ProviderScope(
